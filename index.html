@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Frontend Mentor | Product list with cart</title>
+  <style>
+    *{
+      padding: 0;
+      margin:0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #FCF8F5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      padding: 20px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    .addToCart {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .boxes {
+      padding-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 50px;
+    }
+    .box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .btn {
+      position:absolute;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background-color: white;
+      border: 1px solid grey;
+      border-radius: 20px;
+      padding: 10px 15px;
+      left: 25%;
+      bottom: -5%;
+      font-weight: bold;
+    }
+    .img {
+      max-width: 250px;
+      border-radius: 20px;
+    }
+    .desc {
+      color: grey;
+      font-size: smaller;
+    }
+    .cost {
+      color: #BC3B18;
+      font-weight: bold;
+      font-size: larger;
+    }
+    .text {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .second {
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+    }
+    .emptyCon {
+      text-align: center;
+    }
+    .final {
+      position: absolute;
+      display: none;
+      align-items: center;
+      border-radius: 20px;
+      width: 400px;
+      height: 400px;
+      background-color: white;
+      padding: 20px;
+    }
+    @media (max-width: 450px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .boxes {
+        grid-template-columns: 1fr;
+      }
+
+      .img {
+        max-width: 320px;
+      }
+
+      .btn {
+        left: 30%;
+      }
+
+      .final {
+        position: absolute;
+        bottom: -600%;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        padding: 20px;
+        z-index: 20;
+      }
+    }
+  </style>
+  <script defer src="script.js"></script>
+</head>
+<body class="body">
+<div class="container">
+  <div class="first">
+    <h2>Desserts</h2>
+    <div class="boxes">
+      <div class="box" data-name="Waffle with Berries" data-price="6.5">
+        <div class="addToCart">
+          <img class="img" src="image-waffle-desktop.jpg" alt="">
+          <button class="btn">
+            <img src="icon-add-to-cart.svg" alt="">
+            Add to Cart
+          </button>
+        </div>
+        <div class="text">
+          <p class="desc">Waffle</p>
+          <h3>Waffle with Berries</h3>
+          <p class="cost">$6.50</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="addToCart">
+          <img class="img" src="image-creme-brulee-desktop.jpg" alt="">
+          <button class="btn">
+            <img src="icon-add-to-cart.svg" alt="">
+            Add to Cart
+          </button>
+        </div>
+        <div class="text">
+          <p class="desc">Crème Brûlée</p>
+          <h3>Vanilla Bean Crème Brûlée</h3>
+          <p class="cost">$7.00</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="addToCart">
+          <img class="img" src="image-macaron-desktop.jpg" alt="">
+          <button class="btn">
+            <img src="icon-add-to-cart.svg" alt="">
+            Add to Cart
+          </button>
+        </div>
+        <div class="text">
+          <p class="desc">Macaron</p>
+          <h3>Macaron Mix of Five</h3>
+          <p class="cost">$8.00</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="addToCart">
+          <img class="img" src="image-tiramisu-desktop.jpg" alt="">
+          <button class="btn">
+            <img src="icon-add-to-cart.svg" alt="">
+            Add to Cart
+          </button>
+        </div>
+        <div class="text">
+          <p class="desc">Tiramisu</p>
+          <h3>Classic Tiramisu</h3>
+          <p class="cost">$5.50</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="addToCart">
+          <img class="img" src="image-baklava-desktop.jpg" alt="">
+          <button class="btn">
+            <img src="icon-add-to-cart.svg" alt="">
+            Add to Cart
+          </button>
+        </div>
+        <div class="text">
+          <p class="desc">Baklava</p>
+          <h3>Pistachio Baklava</h3>
+          <p class="cost">$4.00</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="addToCart">
+          <img class="img" src="image-meringue-desktop.jpg" alt="">
+          <button class="btn">
+            <img src="icon-add-to-cart.svg" alt="">
+            Add to Cart
+          </button>
+        </div>
+        <div class="text">
+          <p class="desc">Pie</p>
+          <h3>Lemon Meringue Pie</h3>
+          <p class="cost">$5.00</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="addToCart">
+          <img class="img" src="image-cake-desktop.jpg" alt="">
+          <button class="btn">
+            <img src="icon-add-to-cart.svg" alt="">
+            Add to Cart
+          </button>
+        </div>
+        <div class="text">
+          <p class="desc">Cake</p>
+          <h3>Red Velvet Cake</h3>
+          <p class="cost">$4.50</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="addToCart">
+          <img class="img" src="image-brownie-desktop.jpg" alt="">
+          <button class="btn">
+            <img src="icon-add-to-cart.svg" alt="">
+            Add to Cart
+          </button>
+        </div>
+        <div class="text">
+          <p class="desc">Brownie</p>
+          <h3>Salted Caramel Brownie</h3>
+          <p class="cost">$4.50</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="addToCart">
+          <img class="img" src="image-panna-cotta-desktop.jpg" alt="">
+          <button class="btn">
+            <img src="icon-add-to-cart.svg" alt="">
+            Add to Cart
+          </button>
+        </div>
+        <div class="text">
+          <p class="desc">Panna Cotta</p>
+          <h3>Vanilla Panna Cotta</h3>
+          <p class="cost">$6.50</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="second">
+    <h2 style="color: #BC3B18">Your Cart (<span class="number">0</span>)</h2>
+    <div class="emptyCon">
+      <img width="200px" src="illustration-empty-cart.svg" alt="">
+      <p style="color: #716869">Your added items will appear here</p>
+    </div>
+    <div class="cart-items"></div>
+    <p class="Total" style="display: none">Order Total: <span class="total" style="font-weight: bold; font-size: 20px">$0.00</span></p>
+    <button class="mainButton" style="background-color: #BC3B18; padding: 10px 20px ; border-radius: 20px ; border: none; text-align: center; color: white; width: 100%; margin-top: 20px;  display: none">Confirm Order</button>
+  </div>
+</div>
+<div class="final">
+  <div>
+    <img style="max-width: 50px" src="icon-order-confirmed.svg" alt="">
+    <h2 style="font-weight: bold">Order Confirmed</h2>
+    <p style="color: gray">We hope you enjoy your food!</p>
+    <div class="cart-items"></div>
+  </div>
+  <div><button class="btnRestart" style="background-color: #BC3B18; padding: 10px 20px ; border-radius: 20px ; border: none; text-align: center; color: white; width: 100%; margin-top: 20px">Start new order</button></div>
+</div>
+</body>
+</html>
